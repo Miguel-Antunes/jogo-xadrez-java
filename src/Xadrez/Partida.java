@@ -1,5 +1,8 @@
 package Xadrez;
 
+import Xadrez.pecas.Rei;
+import Xadrez.pecas.Torre;
+import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 
 public class Partida {
@@ -8,6 +11,7 @@ public class Partida {
 
 	public Partida() {
 		this.tabuleiro = new Tabuleiro(8,8);
+		setupInicializacao();
 	}
 	 
 	public PecaXadrez[][] getPecas(){
@@ -21,5 +25,10 @@ public class Partida {
 		return mat;
 	}
 	
+	private void setupInicializacao() {
+		tabuleiro.lugarPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(2, 1));
+		tabuleiro.lugarPeca(new Rei(tabuleiro, Cor.PRETO), new Posicao(0,4));
+		tabuleiro.lugarPeca(new Rei(tabuleiro, Cor.BRANCO), new Posicao(7, 4));
+	}
 
 }
