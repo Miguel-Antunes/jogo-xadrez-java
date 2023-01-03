@@ -6,8 +6,8 @@ import tabuleiro.Tabuleiro;
 public class PecaXadrez  extends Peca{
 	private Cor cor;
 
-	public PecaXadrez(Tabuleiro tabuleiro, Cor cor) {
-		super(tabuleiro);
+	public PecaXadrez(Tabuleiro Tabuleiro, Cor cor) {
+		super(Tabuleiro);
 		this.cor = cor;
 	}
 
