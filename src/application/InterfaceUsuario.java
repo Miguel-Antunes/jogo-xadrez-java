@@ -1,7 +1,13 @@
 package application;
+import static java.lang.Integer.*;
+
+import java.math.BigInteger;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import Xadrez.Cor;
 import Xadrez.PecaXadrez;
+import Xadrez.PosicaoXadrez;
 
 public class InterfaceUsuario {
 	
@@ -23,6 +29,21 @@ public class InterfaceUsuario {
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+	
+	public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {
+		try {
+			String s = sc.nextLine();
+			char coluna = s.charAt(0);
+			BigInteger aux = new BigInteger(s.substring(1));
+			int linha = new Integer(aux.intValue());
+			System.out.println(new PosicaoXadrez(coluna, linha));
+			return new PosicaoXadrez(coluna, linha);
+		}catch (RuntimeException e) {
+			throw new InputMismatchException("Erro lendo posição de Xadrez, posição válida de a1 até h8");
+		}
+		
+		
+	}
 	
 	public static void imprimirTabuleiro(PecaXadrez[][] pecas) {
 	
